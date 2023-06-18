@@ -1,0 +1,6 @@
+.txt-btn {
+  transition: all 0.2s ease-in-out;
+}
+.txt-btn:hover {
+  background-color: #2b4641;
+}

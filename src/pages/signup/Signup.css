@@ -1,0 +1,31 @@
+.signup-input-container:focus-within,
+.signup-input-container:focus {
+  border-color: #42c3aa;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.signup-input-container {
+  transition: all 0.2s ease-in-out;
+}
+
+.submit-btn {
+  transition: all 0.2s ease-in-out;
+}
+
+.submit-btn:hover {
+  box-shadow: 0 0 5px #2b46415d;
+  background: #2b4641 !important;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animation-fade-in {
+  animation: fade-in 0.3s ease-in-out;
+}

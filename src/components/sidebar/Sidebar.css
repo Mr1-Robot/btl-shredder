@@ -1,0 +1,44 @@
+.sidebar-link-container {
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar-link {
+  transition: all 0.2s ease-in-out;
+  color: #526d68;
+}
+
+.sidebar-link-icon {
+  transition: all 0.05s ease-in-out;
+}
+
+.sidebar-link-container:hover {
+  border-left: 3px solid #0f867c;
+}
+.sidebar-link-container:hover .sidebar-link {
+  background-color: #c4e1e0;
+  color: #253d39 !important;
+}
+.sidebar-link-container:hover .sidebar-link-icon {
+  color: #0f867c;
+}
+
+.sidebar-link-active .sidebar-link-container {
+  border-left: 3px solid #0f867c;
+}
+
+.sidebar-link-active .sidebar-link {
+  background-color: #c4e1e0;
+  color: #253d39 !important;
+}
+
+.sidebar-link-active .sidebar-link-icon {
+  color: #0f867c;
+}
+.sidebar-btn button {
+  transition: all 0.2s ease-in-out;
+}
+.sidebar-btn:hover button {
+  text-shadow: 0 0 3px #ff5d2b;
+}

@@ -1,0 +1,29 @@
+.signup-input-container:focus-within,
+.signup-input-container:focus {
+  border-color: #42c3aa;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.signup-input-container {
+  transition: all 0.2s ease-in-out;
+}
+
+.submit-btn {
+  transition: all 0.2s ease-in-out;
+}
+
+.submit-btn:hover {
+  box-shadow: 0 0 5px #2b46415d;
+  background: #2b4641 !important;
+}
+
+.error-message::after {
+  content: "";
+  position: absolute;
+  border-bottom: 0.7rem solid #f5c6cb;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: none;
+  top: -12px;
+  left: 10px;
+}

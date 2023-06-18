@@ -1,0 +1,23 @@
+.machine-card {
+  background: linear-gradient(to bottom, #bee0e0, #bee0e00f);
+  transition: all 0.3s ease-in-out;
+}
+.machine-card:hover {
+  box-shadow: 0px 0px 14px #0f867c4f;
+}
+
+.arrow-icon {
+  transition: all 0.3s ease-in-out;
+}
+
+.machine-card:hover .arrow-icon {
+  color: #2b4641 !important;
+}
+
+.on-status {
+  text-shadow: 0 0 3px #48932f;
+}
+
+.off-status {
+  text-shadow: 0 0 3px #ff5d2b;
+}
