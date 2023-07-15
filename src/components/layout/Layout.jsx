@@ -18,9 +18,11 @@ const Layout = ({ children }) => {
         </div>
       )}
       <div
-        className={`flex-1 overflow-auto rounded-r-3xl bg-white p-10 pt-16 h-screen ${
-          location.pathname === "/signup" ? "rounded-3xl p-0 pt-0" : ""
-        } ${location.pathname === "/login" ? "rounded-3xl p-0 pt-0" : ""}`}
+        className={`flex-1 overflow-auto rounded-r-3xl bg-white p-10 h-[53rem]
+        ${location.pathname === "/" && "pb-0"}
+        ${location.pathname === "/signup" && "rounded-3xl pl-0 pt-0"}
+        ${location.pathname === "/login" && "rounded-3xl pl-0 pt-0"}
+        `}
       >
         {children}
       </div>

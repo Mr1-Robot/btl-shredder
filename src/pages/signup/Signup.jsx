@@ -9,6 +9,7 @@ import { auth } from "../../config/Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import "./Signup.css";
 import { motion } from "framer-motion";
+import useAuth from "../../utils/hooks/useAuth";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -18,6 +19,11 @@ const Signup = () => {
 
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const { userEmail } = useAuth();
+  const userName =
+    userEmail.split("@")[0].charAt(0).toUpperCase() +
+    userEmail.split("@")[0].slice(1);
 
   const navigate = useNavigate();
 
@@ -53,6 +59,8 @@ const Signup = () => {
 
       // Display success message
       setSuccessMessage("User Successfully Created!");
+
+      // Setting timeout for displaying success message
       setTimeout(() => {
         setSuccessMessage("");
 
@@ -73,18 +81,29 @@ const Signup = () => {
     }
   }
 
+  // Write user data
+  function writeUserData(userId, userName, email, password) {
+    const db = database;
+    const userRef = ref(db, "users/" + userId);
+    set(userRef, {
+      userName,
+      email,
+      password,
+    });
+  }
+
   return (
     <motion.div
-      className=" flex items-center gap-6 h-[100%] overflow-hidden"
+      className=" flex overflow-hidden items-center gap-6 h-[100%] "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="img overflow-hidden">
-        <img src={earthImg} alt="Earth" width={730} />
+      <div className="img">
+        <img src={earthImg} alt="Earth" width={778} />
       </div>
 
-      <div className="form-logo flex flex-1 flex-col items-center gap-20">
+      <div className="form-logo flex flex-1 flex-col items-center gap-16">
         <div className="logo-container">
           <Logo />
         </div>
@@ -93,7 +112,34 @@ const Signup = () => {
           <h1 className="text-3xl text-[#2B4641] font-semibold">
             Register an Account
           </h1>
-          <form onSubmit={handleSubmit} className="mt-10 flex flex-col gap-10">
+          <form onSubmit={handleSubmit} className="mt-20 flex flex-col gap-7">
+            {/* Success message  */}
+            <div className="flex justify-center flex-col items-center">
+              {successMessage && !errorMessage && (
+                <>
+                  <div className="animation-fade-in w-[23rem] bg-[#d4edda] text-[#155724] text-lg text-center font-medium rounded-lg p-1 py-2 border-2 border-[#c3e6cb]">
+                    <p className="flex items-center justify-center gap-1">
+                      <AiFillCheckCircle size={22} color="#42C3AA" />
+                      {successMessage}
+                    </p>
+                  </div>
+
+                  <span className="text-[#155724] ">
+                    redirecting to Dashboard..
+                  </span>
+                </>
+              )}
+
+              {/* Error message   */}
+              {errorMessage && !successMessage && (
+                <div className="animation-fade-in w-[23rem] bg-[#f8d7da] text-[#721c24] text-lg font-medium rounded-lg p-2 border-2 border-[#f5c6cb]">
+                  <h1 className="flex justify-center gap-1">
+                    <BiErrorCircle size={30} color="#721c24" />
+                    {errorMessage}
+                  </h1>
+                </div>
+              )}
+            </div>
             <div>
               <div
                 className={`signup-input-container password relative w-[23rem] p-4 ${
@@ -159,35 +205,9 @@ const Signup = () => {
             >
               Sign Up
             </button>
-            <div className="flex justify-center flex-col items-center">
-              {successMessage && (
-                <>
-                  <div className="animation-fade-in w-[20rem] bg-[#2B4641] text-white text-lg text-center font-medium rounded-lg p-1 shadow-md shadow-[#2b464165]">
-                    <p className="flex items-center justify-center gap-1">
-                      <AiFillCheckCircle size={22} color="#42C3AA" />
-                      {successMessage}
-                    </p>
-                  </div>
-
-                  <span className="text-[#2B4641] ">
-                    redirecting to login page..
-                  </span>
-                </>
-              )}
-
-              {/* Error message   */}
-              {errorMessage && (
-                <div className="animation-fade-in w-[23rem] bg-[#fff] text-[#FF5D2A] text-lg font-medium rounded-lg p-1 shadow-sm shadow-[#ff5c2a30]">
-                  <h1 className="flex items-center justify-center gap-1">
-                    <BiErrorCircle size={25} color="#FF5D2A" />
-                    {errorMessage}
-                  </h1>
-                </div>
-              )}
-            </div>
           </form>
         </div>
-        <div className=" text-[#526D68]">
+        <div className=" text-[#526D68] pb-6">
           Already have an account?
           <Link
             to="/login"

@@ -3,7 +3,7 @@ import "./Card.css";
 import { Link } from "react-router-dom";
 import { cardItems } from "./CardItems";
 
-const Card = () => {
+const Card = ({ int, float }) => {
   return (
     <>
       {cardItems?.map((item) => (
@@ -41,7 +41,7 @@ const Card = () => {
                         item.capacity === "Full!" ? "text-[#FFC01D]" : ""
                       } text-lg pl-1 text-[#2B4641]`}
                     >
-                      {item.capacity}
+                      {int}
                     </span>
                   </p>
                 </div>

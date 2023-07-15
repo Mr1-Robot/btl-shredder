@@ -18,9 +18,9 @@ const HomeCardItems1 = () => {
   return (
     <motion.div
       className="card w-[23rem] bg-[#42C3AA] rounded-xl p-4 px-12 flex justify-between items-center gap-16"
-      initial={{ x: "100vw" }}
-      animate={{ x: 0 }}
-      transition={{ delay: 0.2, duration: 0.5 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3, duration: 0.5 }}
     >
       <HomeCardIcon1 />
       <div className="text">

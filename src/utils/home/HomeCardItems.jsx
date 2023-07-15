@@ -7,8 +7,8 @@ const HomeCardItems = () => {
   return (
     <motion.div
       className="card w-[23rem] border-2 rounded-xl p-4 px-12 flex justify-between items-center gap-16"
-      initial={{ x: "-100vw" }}
-      animate={{ x: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ delay: 0.2, duration: 0.5 }}
     >
       <HomeCardIcon />

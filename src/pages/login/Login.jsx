@@ -8,6 +8,8 @@ import "./Login.css";
 import { useState } from "react";
 import useAuth from "../../utils/hooks/useAuth";
 import { motion } from "framer-motion";
+import { database } from "../../config/Firebase";
+import { ref, set } from "firebase/database";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -67,16 +69,16 @@ const Login = () => {
 
   return (
     <motion.div
-      className=" flex items-center gap-6 h-[100%] overflow-hidden"
+      className=" flex overflow-hidden items-center gap-6 h-[100%]  "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="img overflow-hidden">
-        <img src={earthImg} alt="Earth" width={730} />
+      <div className="img ">
+        <img src={earthImg} alt="Earth" width={778} />
       </div>
 
-      <div className="form-logo flex flex-1 flex-col items-center gap-20">
+      <div className="form-logo flex flex-1 flex-col items-center gap-16">
         <div className="logo">
           <Logo />
         </div>
@@ -87,10 +89,10 @@ const Login = () => {
           </h1>
           <form onSubmit={handleSubmit} className="mt-10 flex flex-col gap-10">
             {/* Success message  */}
-            <div className="flex justify-center flex-col items-center">
-              {successMessage && (
+            <div className="flex justify-center flex-col items-center transition-all duration-75">
+              {successMessage && !errorMessage && (
                 <>
-                  <div className="animation-fade-in w-[23rem] bg-[#d4edda] text-[#155724] text-lg text-center font-medium rounded-lg p-1 py-2 border-2 border-[#c3e6cb]">
+                  <div className="animation-fade-in w-[23rem] bg-[#d4edda] text-[#155724] text-lg text-center font-medium rounded-lg p-1 py-2 border-2 border-[#c3e6cb] transition-all duration-75">
                     <p className="flex items-center justify-center gap-1">
                       <AiFillCheckCircle size={22} color="#42C3AA" />
                       {successMessage}
@@ -104,8 +106,8 @@ const Login = () => {
               )}
 
               {/* Error message   */}
-              {errorMessage && (
-                <div className="animation-fade-in w-[23rem] bg-[#f8d7da] text-[#721c24] text-lg font-medium rounded-lg p-2 border-2 border-[#f5c6cb]">
+              {errorMessage && !successMessage && (
+                <div className="animation-fade-in w-[23rem] bg-[#f8d7da] text-[#721c24] text-lg font-medium rounded-lg p-2 border-2 border-[#f5c6cb] transition-all duration-75">
                   <h1 className="flex justify-center gap-1">
                     <BiErrorCircle size={30} color="#721c24" />
                     {errorMessage}
@@ -180,7 +182,7 @@ const Login = () => {
             </button>
           </form>
         </div>
-        <div className=" text-[#526D68]">
+        <div className=" text-[#526D68] pb-6">
           Don't have an account yet?
           <Link
             to="/signup"

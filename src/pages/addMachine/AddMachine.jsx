@@ -13,7 +13,7 @@ const AddMachine = () => {
       </h1>
       <p className="text-[#89C0BE]">Here you can add a new machines.</p>
 
-      <div className="w-full flex justify-center items-center overflow-hidden mt-[8rem]">
+      <div className="w-full flex justify-center items-center rounded-3xl mt-[8rem]">
         <form
           action=""
           className="machine-form bg-[#D4F4F3] py-14 px-6 rounded-3xl flex flex-col gap-6 items-center justify-center"
