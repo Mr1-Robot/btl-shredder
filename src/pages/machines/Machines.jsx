@@ -6,16 +6,21 @@ import { useEffect, useState } from "react";
 
 const Machines = () => {
   const [data, setData] = useState([]);
-  const { int, float } = data;
+  const { ID, Status, Capacity } = data;
 
   function fetchData() {
-    const dbRef = ref(database, "test/");
-    onValue(dbRef, (snapshot) => {
-      const data = snapshot.val();
-      if (snapshot.exists()) {
-        setData(data);
-      }
-    });
+    const dbRef = ref(database, "test4/machine1");
+    try {
+      onValue(dbRef, (snapshot) => {
+        const data = snapshot.val();
+        if (snapshot.exists()) {
+          setData(data);
+        }
+        console.log(data);
+      });
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   useEffect(() => {
@@ -35,7 +40,7 @@ const Machines = () => {
       <p className="text-[#89C0BE]">A package of machines and their status.</p>
 
       <div className="mt-20 flex items-center flex-wrap gap-12">
-        <Card int={int} float={float} />
+        <Card ID={ID} status={Status} capacity={Capacity} />
       </div>
     </motion.div>
   );

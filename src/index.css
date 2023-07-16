@@ -37,3 +37,16 @@
   color: #fff;
   background: #2b4641;
 }
+
+.fade {
+  animation: fade 0.3s ease-in-out;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

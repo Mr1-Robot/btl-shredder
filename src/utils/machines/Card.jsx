@@ -3,7 +3,7 @@ import "./Card.css";
 import { Link } from "react-router-dom";
 import { cardItems } from "./CardItems";
 
-const Card = ({ int, float }) => {
+const Card = ({ ID, status, capacity }) => {
   return (
     <>
       {cardItems?.map((item) => (
@@ -19,29 +19,29 @@ const Card = ({ int, float }) => {
                   <h1 className="text-sm text-[#499B98] font-medium">
                     ID{" "}
                     <span className="text-lg text-[#2B4641] font-semibold pl-1">
-                      {item.title}
+                      {ID}
                     </span>
                   </h1>
                   <p className="text-sm text-[#499B98] font-medium ">
                     Status{" "}
                     <span
                       className={`status-span ${
-                        item.status === "ON"
+                        status === "ON"
                           ? "text-[#48932F] on-status"
                           : "text-[#FF5D2B] off-status"
                       } text-lg pl-1`}
                     >
-                      {item.status}
+                      {status}
                     </span>
                   </p>
                   <p className="text-sm text-[#499B98] font-medium">
                     Capacity{" "}
                     <span
                       className={`${
-                        item.capacity === "Full!" ? "text-[#FFC01D]" : ""
+                        capacity === "1000" ? "text-[#FFC01D]" : ""
                       } text-lg pl-1 text-[#2B4641]`}
                     >
-                      {int}
+                      {capacity === "1000" ? "Full!" : capacity}
                     </span>
                   </p>
                 </div>

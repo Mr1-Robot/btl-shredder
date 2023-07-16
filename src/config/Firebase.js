@@ -1,15 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { getAuth } from "firebase/auth";
-
 const firebaseConfig = {
-  apiKey: "AIzaSyA185fAVsi_PiJ8aus7W37KfjWwxsEJSLI",
-  authDomain: "bottle-shredder.firebaseapp.com",
-  databaseURL: "https://bottle-shredder-default-rtdb.firebaseio.com",
-  projectId: "bottle-shredder",
-  storageBucket: "bottle-shredder.appspot.com",
-  messagingSenderId: "536912262233",
-  appId: "1:536912262233:web:3044a8f28ee66d5a912d48",
+  apiKey: "AIzaSyCbosu_penQSiPSyYUtXrb_8ogX6YqPJ3Q",
+  authDomain: "shredders-monitor.firebaseapp.com",
+  databaseURL: "https://shredders-monitor-default-rtdb.firebaseio.com",
+  projectId: "shredders-monitor",
+  storageBucket: "shredders-monitor.appspot.com",
+  messagingSenderId: "235051512314",
+  appId: "1:235051512314:web:85dc70b7cce9517e347443",
 };
 
 // Initialize Firebase

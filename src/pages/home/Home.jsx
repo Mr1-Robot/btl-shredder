@@ -86,10 +86,11 @@ const Home = () => {
       </div>
       {/* THE TEXT AND BUTTON  */}
 
-      <p className="text-center pt-8 text-[#2b4641f0]">
-        &copy; 2020 - {currentYear}{" "}
-        <span className="font-semibold">Bottle-Shredder</span>. All rights
-        reserved.
+      <p className="text-center pt-8 text-[#2b4641f0] font-mono flex flex-col items-center justify-center">
+        <span>
+          &copy; 2020 - {currentYear} <b>Bottle-Shredder</b>
+          <small className="leading-3"> powered by Makers</small>
+        </span>
       </p>
     </motion.div>
   );

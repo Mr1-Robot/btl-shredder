@@ -14,8 +14,6 @@ const useAuth = () => {
       setIsAuthenticated(true);
       setUserEmail(storedEmail);
     }
-    console.log("isAuthenticated", isAuthenticated);
-    console.log("User email: ", userEmail);
   }, [isAuthenticated]);
 
   async function signIn(email, password) {
