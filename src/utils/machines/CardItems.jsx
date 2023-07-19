@@ -1,4 +1,4 @@
-import MachineImg from "../../assets/machine.png";
+import MachineImg from "../../assets/machineFinal.png";
 
 export const cardItems = [
   {

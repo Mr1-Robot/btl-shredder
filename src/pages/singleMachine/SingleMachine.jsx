@@ -1,4 +1,4 @@
-import machineImg from "../../assets/machine.svg";
+import machineFinal from "../../assets/machineFinal.png";
 import { motion } from "framer-motion";
 
 const SingleMachine = () => {
@@ -21,7 +21,7 @@ const SingleMachine = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <img src={machineImg} alt="Machine" width={400} />
+            <img src={machineFinal} alt="Machine" width={250} />
           </motion.div>
 
           <div className="text flex flex-col gap-6">

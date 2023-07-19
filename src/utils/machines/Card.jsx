@@ -10,8 +10,8 @@ const Card = ({ ID, status, capacity }) => {
         <div key={item.id} className="w-[15rem]">
           <Link to={"/single-machine"}>
             <div className="machine-card w-[15rem] h-[18.75rem] p-4 flex flex-col justify-center items-center rounded-xl gap-6">
-              <div className="img">
-                <img src={item.img} alt={item.title} />
+              <div className="img  w-full flex items-center justify-center overflow-hidden">
+                <img src={item.img} alt={item.title} width={75} />
               </div>
 
               <div className="text flex items-center gap-8">
